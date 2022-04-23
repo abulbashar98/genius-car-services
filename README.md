@@ -17,3 +17,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Created Responsive Layout for Services Using Vanilla Css
 * Created Components and Fetched Images From Programming Hero Github to Create DataBase for Experts
 * Created Experts Responsive Layout Using Bootstrap
+
+## 5th Commit Details
+
+* Installed React Bootstrap in order to Use Components..
+* Created Banner Component in Banner Folder
+* Copied Carousel Slider From React Bootstrap with dependent state...
+* imported banner images from Images Folder..
+* Placed them dynamically in img url
+* Copied Navbar from React Bootstrap and Placed in Header Component...
+* Imported logo from Images and used in Header, Adjusted size using Height as attribute..
+* Changed Services layout slightly, got them inside Container...
+* Services img w-100 
