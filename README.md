@@ -29,3 +29,31 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Imported logo from Images and used in Header, Adjusted size using Height as attribute..
 * Changed Services layout slightly, got them inside Container...
 * Services img w-100 
+
+
+## 6th Commit Part:-1 about using React Bootstrap Component as Link
+
+* We swapped out our Previous NavBar with the one consists Responsive Behavior from React bootstrap
+* Inserted our imported logo in nav brand inside an image again
+* Made our navbar sticky='top'
+* Important one is we Change href="" into to='' using steps...
+1. clear href="#home" or whatever there is....
+2. put to='home' or somewhere else there....
+3. Inside This <Nav.Link> Component from react bootstrap we can assert a prop to Make it's behavior like a Link... (Doesn't Reload)
+
+e.g(<Nav.Link as={Link} to='home'>)
+
+
+
+## 6th Commit Part:- 2 about Dynamic Route Recap....
+
+* first of all Declared a Dynamic Route using Route Parameter... e.g(path='/service/:serviceId')...
+
+* From Service Component using button on Click we can navigate by sending id with click and navigating to a dynamic link.... e.g(navigate(`/sercice/${id}`))
+
+* This dynamic link we are using to route Saves in Route Parameter :- :serviceId
+* We Can access That from the element={<ServiceDetail>} we move to using useParams.. And from useParams we Need to destructure the exact route Parameter we set before while declaring Route... e.g(const {serviceId} = useParams())
+
+
+
+
