@@ -1,8 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import './Register.css'
 
 const Register = () => {
+
+    const navigate = useNavigate()
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
 
 
     const handleRegister = event => {
@@ -17,7 +28,11 @@ const Register = () => {
 
         // console.log(email, password, name)
 
+        createUserWithEmailAndPassword(email, password)
+    }
 
+    if (user) {
+        navigate('/home')
     }
 
     return (
@@ -31,6 +46,7 @@ const Register = () => {
                 <input type="password" name="password" id="" placeholder='password' required />
                 <br />
                 <input type="submit" value="Register" />
+                <p className='text-danger'>{error?.message}</p>
                 <p>Already have an account in genius car services???<Link to='/login' className='text-danger fw-bold pe-auto text-decoration-none'>Login</Link></p>
             </form>
         </div>

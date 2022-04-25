@@ -2,6 +2,31 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## .env.local Structure
+
+REACT_APP_apiKey=AIzaSyAvv5EpRsOVKFyaS4-3X7v7LQRlU0VDhMA
+REACT_APP_authDomain=genius-car-services-52c92.firebaseapp.com
+REACT_APP_projectId=genius-car-services-52c92
+REACT_APP_storageBucket=genius-car-services-52c92.appspot.com
+REACT_APP_messagingSenderId=29716294212
+REACT_APP_appId=1:29716294212:web:20d0b6577704ab4855aa11
+
+
+## firebase.init.js config structure
+
+const firebaseConfig = {
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId,
+};
+
+
+
+
 ## 3rd Commit Details
 
 * Positioned Shared Components Like Header and Footer Over and Under Routes...
@@ -90,6 +115,20 @@ e.g(const email = emailRef.current.value)
 * 3rd way of accessing input value in React: is using event.target.{name}.value
 * Created a File for environment variable
 
+
+
+## 10th Commit Details
+
+* First enabled Firebase Email and Password Authentication from Authentication Settings for genius car services
+* Installed react-firebase-hooks, npm install --save react-firebase-hooks
+* onSubmit for Register Component useCreateUserWithEmailAndPassword
+* Navigate to home if the user is Found, else showing the error...
+* Conditionally rendering Login and sign out Link using user existence that we accessed using useAuthState(auth)... 
+* Created Require Auth Component destructured Children to implement...
+* Created A Proceed Checkout button in Service Detail...
+* Onclick of proceed Checkout navigating to CheckOut component that we have just created..
+* Declared checkout route inside RequireAuth
+* 
 
 
 
