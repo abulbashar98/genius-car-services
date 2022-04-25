@@ -82,5 +82,14 @@ e.g(const email = emailRef.current.value)
 
 
 
+## 8th Commit Details
+
+* Created register form in Previously declared Register Component....
+* Using HTML and vanilla Css...
+* Created to link to navigate to Login Route....
+* 3rd way of accessing input value in React: is using event.target.{name}.value
+* Created a File for environment variable
+
+
 
 
