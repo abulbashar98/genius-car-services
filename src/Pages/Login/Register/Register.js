@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import './Register.css'
+import SocialLogin from '../SociralLogin/SocialLogin';
 
 const Register = () => {
 
@@ -48,6 +49,7 @@ const Register = () => {
                 <input type="submit" value="Register" />
                 <p className='text-danger'>{error?.message}</p>
                 <p>Already have an account in genius car services???<Link to='/login' className='text-danger fw-bold pe-auto text-decoration-none'>Login</Link></p>
+                <SocialLogin></SocialLogin>
             </form>
         </div>
     );

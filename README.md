@@ -131,7 +131,18 @@ e.g(const email = emailRef.current.value)
 * Created A Proceed Checkout button in Service Detail...
 * Onclick of proceed Checkout navigating to CheckOut component that we have just created..
 * Declared checkout route inside RequireAuth
-* Redirecting from Login Page using from,location,state,pathname, and navigate
+* Redirecting from Login Page using from,location,state,pathname, and navigated
+
+
+## 11th Commit Details
+
+* Changed Require Auth Component Position
+* Created a Social Login Component
+* Created a Divider using div_s and or in between 
+* Created Buttons to login With Google using React icon, with Facebook using and optimizing img with photoPea magic wand and export size, Same with Github With...
+* Showing the Social Login Component both under Login and Register Form....
+
+
 
 
 
