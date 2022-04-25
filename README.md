@@ -3,6 +3,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
+## Used Multi Cursor ShortCuts
+
+
 ## .env.local Structure
 
 REACT_APP_apiKey=AIzaSyAvv5EpRsOVKFyaS4-3X7v7LQRlU0VDhMA
@@ -128,7 +131,8 @@ e.g(const email = emailRef.current.value)
 * Created A Proceed Checkout button in Service Detail...
 * Onclick of proceed Checkout navigating to CheckOut component that we have just created..
 * Declared checkout route inside RequireAuth
-* 
+* Redirecting from Login Page using from,location,state,pathname, and navigate
+
 
 
 
