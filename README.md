@@ -145,5 +145,14 @@ e.g(const email = emailRef.current.value)
 
 
 
+## 12th commit Details
+
+* Imported useSignInWithGoogle from react-firebase-hooks...
+* On click of Button using for Google sign in if the user is found we are going to Navigate to home page
+* Else the error is shown using a variable...
+* Not using the Default documentation return function as it stops the render for Social Login button, because it returns from there...
+
+
+
 
 

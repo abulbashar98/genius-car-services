@@ -1,9 +1,30 @@
 import React from 'react';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { FcGoogle } from 'react-icons/fc';
 import githubImg from '../../../images/Social/GitHub-Mark.png'
 import facebookImg from '../../../images/Social/facebook.png'
+import auth from '../../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
+
+    const navigate = useNavigate()
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    let errorElement;
+
+    if (user) {
+        navigate('/home')
+    }
+
+    if (error) {
+        errorElement = (
+            <div>
+                <p className='text-danger'>Error: {error.message}</p>
+            </div>
+        )
+            ;
+    }
+
     return (
         <div>
             <div className='d-flex my-4 align-items-center'>
@@ -11,8 +32,11 @@ const SocialLogin = () => {
                 <p className='pt-2 mx-3'>or</p>
                 <div style={{ height: '2px' }} className='w-50 bg-primary'></div>
             </div>
+            <p className='text-danger'>{errorElement}</p>
             <div className='w-50 mx-auto'>
-                <button className='btn btn-info w-100 mx-auto'>
+                <button
+                    onClick={() => signInWithGoogle()}
+                    className='btn btn-info w-100 mx-auto'>
                     <FcGoogle size={27}></FcGoogle>
                     <span className='mx-3'>Google sign in</span>
                 </button>
