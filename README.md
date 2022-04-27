@@ -187,5 +187,24 @@ createUserWithEmailAndPassword Conditionally....
 * Using state of checkbox we can toggle the attribute disabled of input:submit button...
 e.g(disabled={!agreed})
 
+## 16th Commit Details, About Sending Email verification in multiple ways, and update profile using async await
+
+1. 1st way 
+* At first notice how we can send a verification email when we use useCreateUserWithEmailAndPassword , with auth parameter we can send an object to send email verification with a boolean value
+e.g(auth, {sendEmailVerification : true})
+
+2. 2nd way 
+* Using async and await we can sendEmail verification on Submit... That means the user is going to be created and then the awaiting function to send email verification works
+
+3. we can update profile using the same system of second way of sending email verification...
+
+* import useUpdate profile, using async await when the user is created then we can use updateProfile function with await... and update the fields we are getting from input fields of the form inside updateProfileI() parameter space with an Object....
+
+* Notice the keys existing in user object in Console.log
+
+e.g({displayName: name})
+
+
+
 
 

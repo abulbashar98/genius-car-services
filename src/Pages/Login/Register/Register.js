@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import './Register.css'
 import SocialLogin from '../SociralLogin/SocialLogin';
@@ -15,10 +17,21 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const [sendEmailVerification,
+        sending,
+        error1] = useSendEmailVerification(auth);
+
+    const [updateProfile] = useUpdateProfile(auth);
 
 
-    const handleRegister = event => {
+    if (user) {
+        console.log(user);
+    }
+
+
+    const handleRegister = async (event) => {
         event.preventDefault();
         // console.log(event.target)
         // console.log(event.target.email)
@@ -31,14 +44,21 @@ const Register = () => {
 
         // console.log(email, password, name, agreed)
 
-        if (agreed) {
-            createUserWithEmailAndPassword(email, password)
-        }
+        await createUserWithEmailAndPassword(email, password);
+        navigate('/home')
+
+        // 2nd way of doing verification
+        // await sendEmailVerification();
+        // alert('Verify Your Email')
+
+        await updateProfile({ displayName: name });
+        alert('Updated profile');
+
+
     }
 
-    if (user) {
-        navigate('/home')
-    }
+
+
 
     return (
         <div className='container w-50'>

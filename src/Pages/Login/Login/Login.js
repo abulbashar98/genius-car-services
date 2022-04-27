@@ -37,6 +37,7 @@ const Login = () => {
     }
 
 
+
     if (error || error1) {
         errorElement = <p className='text-danger'>Error: {error ? error.message : 'Invalid email'}</p>
     }
@@ -48,12 +49,13 @@ const Login = () => {
         const password = passwordRef.current.value;
 
 
-        console.log(email, password)
+        // console.log(email, password)
 
         signInWithEmailAndPassword(email, password)
     }
 
     if (user) {
+        console.log(user)
         navigate(from, { replace: true })
     }
 
