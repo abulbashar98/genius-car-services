@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SociralLogin/SocialLogin';
@@ -24,11 +24,23 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    if (error) {
+    const [sendPasswordResetEmail, error1] = useSendPasswordResetEmail(auth);
 
-        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+
+        if (email) {
+            await sendPasswordResetEmail(email);
+            alert('Sent email');
+        }
 
     }
+
+
+    if (error || error1) {
+        errorElement = <p className='text-danger'>Error: {error ? error.message : 'Invalid email'}</p>
+    }
+
 
     const handleLoginSubmit = event => {
         event.preventDefault();
@@ -63,11 +75,12 @@ const Login = () => {
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                 </Form.Group>
                 <p className='text-danger'>{errorElement}</p>
-                <Button className='w-50 mx-auto d-block ' variant="primary" type="submit">
+                <Button className='w-50 mx-auto d-block my-2' variant="primary" type="submit">
                     Login
                 </Button>
             </Form>
-            <p>New in genius car services?? <Link to='/register' onClick={navigateToRegister} className='text-danger fw-bold pe-auto text-decoration-none'>Please Register</Link></p>
+            <p>Forget Password??<Link to='' onClick={resetPassword} className='text-primary fw-bold pe-auto text-decoration-none'>Please Reset Password</Link></p>
+            <p>New in genius car services?? <Link to='/register' onClick={navigateToRegister} className='text-primary fw-bold pe-auto text-decoration-none'>Please Register</Link></p>
             <SocialLogin></SocialLogin>
         </div>
     );

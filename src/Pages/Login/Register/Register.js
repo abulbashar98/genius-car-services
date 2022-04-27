@@ -44,11 +44,13 @@ const Register = () => {
                 <br />
                 <input type="email" name="email" id="" placeholder='your email' required />
                 <br />
-                <input type="password" name="password" id="" placeholder='password' required />
+                <input type="password" name="password" id="" placeholder='create password' required />
                 <br />
-                <input type="submit" value="Register" />
+                <input type="checkbox" name="terms" id="terms" />
+                <label className='ms-2' htmlFor="terms">Accept Terms And Conditions of genius car services</label>
+                <input className='btn btn-primary w-50 mx-auto d-block mt-2' type="submit" value="Register" />
                 <p className='text-danger'>{error?.message}</p>
-                <p>Already have an account in genius car services???<Link to='/login' className='text-danger fw-bold pe-auto text-decoration-none'>Login</Link></p>
+                <p>Already have an account in genius car services???<Link to='/login' className='text-primary fw-bold pe-auto text-decoration-none'>Please Login</Link></p>
                 <SocialLogin></SocialLogin>
             </form>
         </div>

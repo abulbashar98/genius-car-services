@@ -162,6 +162,14 @@ e.g(const email = emailRef.current.value)
 *  Created Github Sign in In Social Login Component with react-firebase-hooks
 * Handle const variables with different names and conditional rendering with help of Optional Chaining....
 
+## 14th Commit Details
+
+* Made Changes in Login And Register Form to Make Some design Consistency...
+* Created a link to Reset password in Login Component without any Redirection ....
+* Imported useSendPasswordResetEmail amd used sendPasswordResetEmail with Async and Await onCLick to THis Link.. 
+* Created A Checkbox to Accept terms and Conditions in Register Component
+* Used Conditional Css Class (input:not([type=checkbox])) to style input:checkbox
+
 
 
 
