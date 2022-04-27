@@ -168,9 +168,24 @@ e.g(const email = emailRef.current.value)
 * Created a link to Reset password in Login Component without any Redirection ....
 * Imported useSendPasswordResetEmail amd used sendPasswordResetEmail with Async and Await onCLick to THis Link.. 
 * Created A Checkbox to Accept terms and Conditions in Register Component
-* Used Conditional Css Class (input:not([type=checkbox])) to style input:checkbox
+* Used  Css pseudo type  Class (input:not([type=checkbox])) to style input:checkbox
 
 
+## 15th commit Details, About Conditional Css styling
+
+* using event.target.terms.checked we can access the value of checkbox... and use it to 
+createUserWithEmailAndPassword Conditionally....
+
+* But to use Conditional css Styling like Conditional rendering... We Declared a state, for checkbox value with default value of false....
+
+* onClick of input:checkbox we use a function to toggle the value using setAgreed from useState, e.g(setAgreed(!agreed))...
+
+* Then using the State styled label with two different ideas, 
+1. simple ternary operator
+2. ternary operator inside template string
+
+* Using state of checkbox we can toggle the attribute disabled of input:submit button...
+e.g(disabled={!agreed})
 
 
 
