@@ -153,6 +153,16 @@ e.g(const email = emailRef.current.value)
 * Not using the Default documentation return function as it stops the render for Social Login button, because it returns from there...
 
 
+## 13th Commit Details
+
+* Enable Github provider in Firebase App
+* Github account > setting > developer settings > oAuth applications 
+* Registered app, Copied Homepage url, Copied callback authorization from firebase and pasted to github
+* After registration Copied Client Id and Secret to Enable Github
+*  Created Github Sign in In Social Login Component with react-firebase-hooks
+* Handle const variables with different names and conditional rendering with help of Optional Chaining....
+
+
 
 
 

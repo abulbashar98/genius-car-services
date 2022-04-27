@@ -15,7 +15,7 @@ const Login = () => {
     const location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
-
+    let errorElement;
 
     const [
         signInWithEmailAndPassword,
@@ -24,7 +24,11 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    if (error) {
 
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+
+    }
 
     const handleLoginSubmit = event => {
         event.preventDefault();
@@ -58,8 +62,8 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                 </Form.Group>
-                <p className='text-danger'>{error?.message}</p>
-                <Button variant="primary" type="submit">
+                <p className='text-danger'>{errorElement}</p>
+                <Button className='w-50 mx-auto d-block ' variant="primary" type="submit">
                     Login
                 </Button>
             </Form>
