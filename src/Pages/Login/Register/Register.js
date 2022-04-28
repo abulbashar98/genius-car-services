@@ -6,11 +6,15 @@ import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import './Register.css'
 import SocialLogin from '../SociralLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
     const navigate = useNavigate()
     const [agreed, setAgreed] = useState(false);
+    let errorElement;
 
     const [
         createUserWithEmailAndPassword,
@@ -28,6 +32,14 @@ const Register = () => {
 
     if (user) {
         console.log(user);
+    }
+
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
+
+    if (error || error1) {
+        errorElement = <p className='text-danger'>Error: {error?.message} {error1?.message}</p>
     }
 
 
@@ -49,10 +61,10 @@ const Register = () => {
 
         // 2nd way of doing verification
         // await sendEmailVerification();
-        // alert('Verify Your Email')
+        toast('Verify Your Email')
 
         await updateProfile({ displayName: name });
-        alert('Updated profile');
+        toast('Updated profile');
 
 
     }
@@ -81,9 +93,10 @@ const Register = () => {
                     disabled={!agreed}
                     className='btn btn-primary w-50 mx-auto d-block mt-2' type="submit" value="Register"
                 />
-                <p className='text-danger'>{error?.message}</p>
+                <p className='text-danger'>{errorElement}</p>
                 <p>Already have an account in genius car services???<Link to='/login' className='text-primary fw-bold pe-auto text-decoration-none'>Please Login</Link></p>
                 <SocialLogin></SocialLogin>
+                <ToastContainer />
             </form>
         </div>
     );

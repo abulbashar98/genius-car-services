@@ -201,9 +201,32 @@ e.g(auth, {sendEmailVerification : true})
 * import useUpdate profile, using async await when the user is created then we can use updateProfile function with await... and update the fields we are getting from input fields of the form inside updateProfileI() parameter space with an Object....
 
 * Notice the keys existing in user object in Console.log
-
 e.g({displayName: name})
 
+
+
+## 17th Commit, About Solving Reload Redirect to LOgin page issue, and React-Toastify
+
+
+* Problem:- Logged in yet whenever we Reload from a protected Route, website was redirecting to LOgin Page....
+
+* Reason:- Because the Protected Route is inside Require Auth, on Reload the Compiler goes into Require Auth and before Getting Access to the user it defines the user is null and return the <Navigate> option.....
+
+* Fix:- So to solve this problem, there is a return with useSignInWithEmailAndPassword, Which is Loading, by using the Loading we can access the user after loading ends on Reload...
+
+* Used Bootstrap Spinner Component in a Loading Component inside shared page...
+
+* then used Loading Component in Login, register, and other pages with loading,sending returns...
+
+* installed react-toastify to use instead of alert, npm install --save react-toastify
+
+* imported 
+1. import { ToastContainer, toast } from 'react-toastify';
+2. import 'react-toastify/dist/ReactToastify.css';
+
+* Used <TOastContainer> with JSX
+
+* used toast replacing alert
 
 
 
